@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block menu %}
+  <li>
+    <a href="{% url 'blog_index' %}"><i title="Retour au blog" class="icon-left-open tooltip" data-tooltip-pos="left"></i></a>
+  </li>
+  <li>
+    <a href="{% url 'index' %}"><i title="Retour à l'accueil" class="icon-home-1 tooltip" data-tooltip-pos="right"></i></a>
+  </li>
+{% endblock %}
+
+{% block content %}
+
+<!-- .blog-single -->
+<div class="readable-content blog-single ">
+
+
+    <!-- .hentry -->
+    <article class="post type-post format-standard hentry">
+    
+    
+      <!-- .entry-header -->
+      <header class="entry-header">
+        <h1 class="entry-title">{{ entry.title | upper }}</h1>
+      </header>
+      <!-- .entry-header -->
+      
+      <!-- .entry-meta -->
+      <div class="entry-meta">
+        
+            <span class="posted-in">
+                posté dans 
+                <a>{{ entry.category }}</a>
+            </span>
+            
+            <span class="posted-on">
+                le  
+                <a href="{{ entry.get_absolute_url }}" rel="bookmark">
+                  <time class="entry-date" datetime="{{ entry.publication_date }}">{{ entry.publication_date | date }}</time>
+                </a>
+            </span>
+            
+            
+            <span class="posted-by"> 
+                par 
+                <a class="url fn n" href="{% url 'blog_index' %}" rel="author">Valentin Bourgoin</a>
+            </span>
+            
+      </div>
+      <!-- .entry-meta -->
+      
+      {% if entry.pict != "" %}
+      <!-- .featured-image -->  
+      <div class="featured-image">
+        <img src="{{ entry.pict.url }}" alt="{{ entry.title }}">
+      </div>
+      <!-- .featured-image --> 
+      {% endif %}
+      
+      
+      <!-- .entry-content --> 
+      <div class="entry-content">
+           
+            {% autoescape off %}
+            {{ entry.body }}
+            {% endautoescape %}
+            
+      </div>
+      <!-- .entry-content -->
+      
+       
+    </article>
+    <!-- .hentry -->
+    
+    
+    
+    
+    <!-- .about-author -->
+    <aside class="about-author">
+        
+        <h3>L'AUTEUR</h3>
+        
+        <!-- .author-bio --> 
+        <div class="author-bio">
+            
+            <!-- .author-img --> 
+            <div class="author-img">
+                <a href="{% url 'index' %}">
+                  <img alt="Valentin Bourgoin" src="https://graph.facebook.com/valentinbourgoin/picture?type=square&width=96&height=96" class="avatar">
+                </a>                                                
+            </div>
+            <!-- .author-img -->
+            
+            <!-- .author-info -->
+            <div class="author-info">
+                <h4 class="author-name">Valentin Bourgoin</h4>
+                <p>
+                  Développeur web indépendant, je suis à mon compte depuis 2010. Passioné de joli code et de méthodologie, je donne des cours à l'école d'ingénieur IMAC. J'aime aussi les bandes dessinées, la bière belge et les vélos. 
+                </p>
+            </div>
+            <!-- .author-info -->
+            
+        </div>
+        <!-- .author-bio --> 
+        
+    </aside>
+    <!-- .about-author -->
+    
+    
+    
+    
+    
+    <!-- .nav-single -->
+    <nav class="nav-single row">
+  
+        <div class="nav-previous col-sm-6">
+            {% if previous != None %}
+              <h4>ARTICLE PRECEDENT</h4>
+              <a href="{{ previous.get_absolute_url }}" rel="prev">
+                <span class="meta-nav">←</span> {{ previous.title | upper }}
+              </a>
+            {% endif %}
+        </div>
+        
+        <div class="nav-next col-sm-6">
+            {% if next != None %}
+              <h4>ARTICLE SUIVANT</h4>
+              <a href="{{ next.get_absolute_url }}" rel="next">
+                {{ next.title | upper }} <span class="meta-nav">→</span>
+              </a>
+            {% endif %}
+        </div>
+        
+    </nav>
+    <!-- .nav-single --> 
+    
+
+</div>
+<!-- .blog-single --> 
+
+{% endblock %}

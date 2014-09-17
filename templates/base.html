@@ -74,12 +74,12 @@
                 <ul class="vs-nav">
                     
                     <!-- InstanceBeginEditable name="Menu-Content" -->
-                    
+                    {% block menu %}
                    	<li><a href="{% url "index" %}">about me</a></li>
                     <li><a href="{% url "cv" %}">resume</a></li>
-                    <li><a href="#/blog">blog</a></li>
+                    <li><a href="{% url "blog_index" %}">blog</a></li>
                     <li><a href="{% url "contact" %}">contact</a></li>
-                                        
+                    {% endblock %}     
                     <!-- InstanceEndEditable -->
                 	
                 </ul>

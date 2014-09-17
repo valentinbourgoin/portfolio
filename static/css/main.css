@@ -417,14 +417,14 @@ a.more-link,
  	font-size: 1em; margin: .1em 0 .6em; display: inline-block; font-style: italic; padding: 6px 10px; background: #FAF46A; color: #345; color: rgba(0,0,0,.7); border-radius: 4px; line-height: 1;
 		}
 /* single page menu  */
-.single-page-layout .vs-nav li a {
+.vs-nav li a {
  	letter-spacing: -1px; margin: 0 4px; padding: 0;
 	}
-.single-page-layout .vs-nav li i {
+.vs-nav li i {
  	font-size: 17px; display: inline-block; width: 58px; line-height: 55px; text-align: center; border-radius: 50%; color: #6A7686; border: 1px solid #C8D3D6; background: #fff;
 	}
-.single-page-layout .vs-nav li i:hover,
-.single-page-layout .vs-nav li i.active {
+.vs-nav li i:hover,
+.vs-nav li i.active {
  	color: #fff; border-color: transparent;
 	}
 	
@@ -2756,7 +2756,7 @@ a:hover {
 .navigation a:hover,
 .pagination a:hover,
 .entry-meta a:hover,
-.single-page-layout .vs-nav li i:hover,
+.vs-nav li i:hover,
 .media-box .mask:before,
 .button.primary:hover,
 a.more-link:hover,

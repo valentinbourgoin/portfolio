@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- .blog-posts -->
+<div class="blog-posts readable-content">
+
+    {% for entry in entries %}
+
+    <!-- .post -->                                      
+    <article class="post type-post hentry {{ entry.category.class_name }}">
+        
+        
+        <!-- .entry-meta --> 
+        <footer class="entry-meta">
+            <span class="post-format"></span>
+            <span title="{{ entry.publication_date | date:'Y' }}" class="entry-date">
+                <span class="day">{{ entry.publication_date | date:'d' }}</span>{{ entry.publication_date | date:'M' }}</span>
+                <!--<span class="entry-comment"><span class="count">3</span>comments</span>-->
+        </footer>
+        <!-- .entry-meta -->  
+        
+        
+        <!-- .entry-header -->
+        <header class="entry-header">
+            <h1 class="entry-title">
+                <a href="{% url 'blog_detail' slug=entry.slug %}" rel="bookmark">{{ entry.title | upper }}</a>
+            </h1>
+        </header>
+        <!-- .entry-header -->
+        
+        {% if entry.pict != "" %}
+        <!-- .featured-image --> 
+        <div class="featured-image">
+            <img src="{% static entry.pict %}" alt="blog-image">
+        </div>
+        <!-- .featured-image --> 
+        {% endif %}
+        
+        
+        <!-- .entry-content -->     
+        <div class="entry-content">
+            <p>
+                {{ entry.overview }}
+                <a href="{% url 'blog_detail' slug=entry.slug %}" class="more-link">
+                    Lire la suite
+                    <span class="meta-nav">→</span>
+                </a>
+            </p>
+        </div>
+        <!-- .entry-content -->
+        
+        
+    </article>
+    <!-- .post -->  
+
+    {% endfor %}
+    
+    
+    <!-- post nav -->
+    <nav class="navigation" role="navigation">
+        {% if entries.has_next %}
+        <div class="nav-previous">
+            <a href="?page={{ contacts.next_page_number }}"><span class="meta-nav">←</span> Older posts</a>
+        </div>
+        {% endif %}
+
+        {% if entries.has_previous %}
+        <div class="nav-next">
+            <a href="?page={{ contacts.previous_page_number }}">Newer posts <span class="meta-nav">→</span></a>
+        </div>
+        {% endif %}
+    </nav>
+    <!-- post nav -->
+    
+    
+    
+
+</div>
+<!-- .blog-posts -->
+
+{% endblock %}
