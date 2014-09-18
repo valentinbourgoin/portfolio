@@ -1,0 +1,14 @@
+Django==1.7
+Pillow==2.5.3
+beautifulsoup4==4.3.2
+django-blog-zinnia==0.14.1
+django-mptt==0.6.1
+django-tagging==0.3.2
+django-xmlrpc==0.1.5
+pyparsing==2.0.2
+python-dateutil==1.5
+pytz==2014.7
+requests==2.4.1
+stravalib==0.3.0
+units==0.06
+wsgiref==0.1.2
