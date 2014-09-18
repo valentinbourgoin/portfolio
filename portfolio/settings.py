@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'cv', 
     'blog'
 )
@@ -99,3 +100,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
 )
+
+# Strava 
+STRAVA_TOKEN = '4d92fb83941504cc00a4212d5801f7283702c0ce'
+STRAVA_ID = 1999872

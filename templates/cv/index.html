@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load staticfiles humanize %}
 
 {% block content %}
 
@@ -151,7 +151,7 @@
                 <!-- fun-fact -->
                 <div class="fun-fact">
                     <i class="icon-jabber"></i>
-                    <h4>101 PROJETS TERMINES</h4>
+                    <h4>101 PROJETS TERMINÉS</h4>
                 </div>
                 <!-- fun-fact -->
                 
@@ -186,7 +186,7 @@
                 <!-- fun-fact -->
                 <div class="fun-fact">
                     <i class="icon-bicycle"></i>
-                    <h4>1450 KM <br />A VELO</h4>
+                    <h4>{{ cycled | floatformat:"0" | intcomma }} KM <br />A VÉLO</h4>
                 </div>
                 <!-- fun-fact -->
                 

@@ -23,12 +23,18 @@ def blog_index(request):
 	# Render template 
 	return render_to_response(
 		'blog/list.html', 
-		{ 'entries': entries }, 
+		{ 
+			'entries': entries, 
+			'request': request
+		}, 
 		context_instance=RequestContext(request)
 	)
 
 
-
+###
+# Blog post page 
+# Get current post 
+###
 def blog_detail(request, slug):
 	entry = get_object_or_404(Entry, slug=slug)
 	previous = entry.get_previous_entry()
@@ -38,7 +44,8 @@ def blog_detail(request, slug):
 		{
 			'entry': entry, 
 			'previous': previous, 
-			'next': next
+			'next': next, 
+			'request': request
 		}, 
 		context_instance=RequestContext(request))
 	

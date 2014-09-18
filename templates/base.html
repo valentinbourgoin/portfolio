@@ -73,17 +73,30 @@
                 <!-- NAV MENU -->
                 <ul class="vs-nav">
                     
-                    <!-- InstanceBeginEditable name="Menu-Content" -->
                     {% block menu %}
-                   	<li><a href="{% url "index" %}">about me</a></li>
-                    <li><a href="{% url "cv" %}">resume</a></li>
-                    <li><a href="{% url "blog_index" %}">blog</a></li>
-                    <li><a href="{% url "contact" %}">contact</a></li>
+
+                    {% url 'index' as url_index %}
+                    {% url 'cv' as url_cv %}
+                    {% url 'blog_index' as url_blog %}
+                    {% url 'contact' as url_contact %}
+
+                   	<li{% if request.get_full_path == url_index %} class="current_page_item"{% endif %}>
+                        <a href="{{ url_index }}">à propos</a>
+                    </li>
+                    <li{% if request.get_full_path == url_cv %} class="current_page_item"{% endif %}>
+                        <a href="{{ url_cv }}">cv</a>
+                    </li>
+                    <li{% if request.get_full_path == url_blog %} class="current_page_item"{% endif %}>
+                        <a href="{{ url_blog }}">blog</a>
+                    </li>
+                    <li{% if request.get_full_path == url_contact %} class="current_page_item"{% endif %}>
+                        <a href="{{ url_contact }}">contact</a>
+                    </li>
+                    
                     {% endblock %}     
-                    <!-- InstanceEndEditable -->
                 	
                 </ul>
-                <!-- NAV MENU -->    
+
                 {% endblock %}
 
             </header>
