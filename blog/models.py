@@ -56,6 +56,7 @@ class Entry(models.Model):
 	publication_date = models.DateTimeField(_('publication date'), default=datetime.now(), db_index=True)
 	status = models.IntegerField(_('status'), choices=STATUS_CHOICES, default=STATUS_DEFAULT, db_index=True)
 	body = models.TextField(_('body'))
+	tags = models.TextField(null=True)
 	overview = models.TextField()
 	
 	objects = models.Manager()

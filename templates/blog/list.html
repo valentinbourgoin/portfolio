@@ -25,11 +25,14 @@
         <!-- .entry-header -->
         <header class="entry-header">
             <h1 class="entry-title">
+                {% autoescape off %}
                 <a href="{% url 'blog_detail' slug=entry.slug %}" rel="bookmark">{{ entry.title | upper }}</a>
+                {% endautoescape %}
             </h1>
         </header>
         <!-- .entry-header -->
         
+        {% comment %}
         {% if entry.pict != "" %}
         <!-- .featured-image --> 
         <div class="featured-image">
@@ -37,12 +40,15 @@
         </div>
         <!-- .featured-image --> 
         {% endif %}
+        {% endcomment %}
         
         
         <!-- .entry-content -->     
         <div class="entry-content">
             <p>
+                {% autoescape off %}
                 {{ entry.overview }}
+                {% endautoescape %}
                 <a href="{% url 'blog_detail' slug=entry.slug %}" class="more-link">
                     Lire la suite
                     <span class="meta-nav">→</span>
