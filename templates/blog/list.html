@@ -68,13 +68,13 @@
     <nav class="navigation" role="navigation">
         {% if entries.has_next %}
         <div class="nav-previous">
-            <a href="?page={{ contacts.next_page_number }}"><span class="meta-nav">←</span> Older posts</a>
+            <a href="?page={{ entries.next_page_number }}"><span class="meta-nav">←</span> Older posts</a>
         </div>
         {% endif %}
 
         {% if entries.has_previous %}
         <div class="nav-next">
-            <a href="?page={{ contacts.previous_page_number }}">Newer posts <span class="meta-nav">→</span></a>
+            <a href="?page={{ entries.previous_page_number }}">Newer posts <span class="meta-nav">→</span></a>
         </div>
         {% endif %}
     </nav>

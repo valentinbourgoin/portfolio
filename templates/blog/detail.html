@@ -22,7 +22,7 @@
     
       <!-- .entry-header -->
       <header class="entry-header">
-        <h1 class="entry-title">{{ entry.title | upper }}</h1>
+        <h1 class="entry-title">{% autoescape off %}{{ entry.title | upper }}{% endautoescape %}</h1>
       </header>
       <!-- .entry-header -->
       
@@ -50,6 +50,7 @@
       </div>
       <!-- .entry-meta -->
       
+      {% comment %}
       {% if entry.pict != "" %}
       <!-- .featured-image -->  
       <div class="featured-image">
@@ -57,7 +58,7 @@
       </div>
       <!-- .featured-image --> 
       {% endif %}
-      
+      {% endcomment %}
       
       <!-- .entry-content --> 
       <div class="entry-content">
