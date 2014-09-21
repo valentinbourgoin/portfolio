@@ -2,7 +2,7 @@ AddHandler fcgid-script .fcgi
 RewriteEngine On
 
 # static files
-RewriteRule ^cv.pdf$ static/pdf/cv.pdf [L]
+RewriteRule ^cv.pdf$ static/Valentin-Bourgoin_CV.pdf [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ django.fcgi/$1 [QSA,L]
